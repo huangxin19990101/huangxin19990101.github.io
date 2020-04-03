@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Kay&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="React-Nativereact不能使用常规的html标签 123456789101112131415161718192021222324252627282930313233343536373839&lt;View style&#x3D;&amp;#123;&amp;#123;flex: 1, justifyContent: &#39;center&#39;, alignItems: &#39;center&amp;#">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kay&#39;s Blog">
+<meta property="og:url" content="blog.hxcloud.xyz/react-native.html">
+<meta property="og:site_name" content="Kay&#39;s Blog">
+<meta property="og:description" content="React-Nativereact不能使用常规的html标签 123456789101112131415161718192021222324252627282930313233343536373839&lt;View style&#x3D;&amp;#123;&amp;#123;flex: 1, justifyContent: &#39;center&#39;, alignItems: &#39;center&amp;#">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2020-04-03T12:51:36.831Z">
+<meta property="article:modified_time" content="2019-11-12T10:50:02.329Z">
+<meta property="article:author" content="Kay">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Kay&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Kay&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Record my knowledge</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="blog.hxcloud.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/react-native.html" class="article-date">
+  <time datetime="2020-04-03T12:51:36.831Z" itemprop="datePublished">2020-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="React-Native"><a href="#React-Native" class="headerlink" title="React-Native"></a>React-Native</h1><p>react不能使用常规的html标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style&#x3D;&#123;&#123;flex: 1, justifyContent: &#39;center&#39;, alignItems: &#39;center&#39;&#125;&#125;&gt;</span><br><span class="line">    &lt;ScrollView style&#x3D;&#123;&#123;width:&quot;100%&quot;&#125;&#125; contentContainerStyle&#x3D;&#123;&#123; justifyContent: &#39;center&#39;, alignItems: &#39;center&#39;&#125;&#125;&gt;</span><br><span class="line">        &lt;Text&gt;Hello, asd!&lt;&#x2F;Text&gt;</span><br><span class="line">        &lt;TextInput defaultValue&#x3D;&#123;&#39;cdd&#39;&#125; style&#x3D;&#123;&#123;height: 40, width: &#39;90%&#39;, borderColor: &#39;gray&#39;, borderWidth: 1&#125;&#125;</span><br><span class="line">            keyboardType&#x3D;&#123;&quot;number-pad&quot;&#125;</span><br><span class="line">            secureTextEntry</span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        &#123;&#x2F;*本地图片*&#x2F;&#125;</span><br><span class="line">        &lt;Image style&#x3D;&#123;&#123;width: 50, height: 50&#125;&#125;</span><br><span class="line">            source&#x3D;&#123;require(&#39;..&#x2F;assets&#x2F;img&#x2F;1.jpg&#39;)&#125;</span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        &#123;&#x2F;*网络资源图片,需要给出宽高*&#x2F;&#125;</span><br><span class="line">        &lt;Image</span><br><span class="line">            style&#x3D;&#123;&#123;width: 50, height: 300&#125;&#125;</span><br><span class="line">            source&#x3D;&#123;&#123;uri: &#39;https:&#x2F;&#x2F;facebook.github.io&#x2F;react-native&#x2F;img&#x2F;tiny_logo.png&#39;&#125;&#125;</span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        &lt;Image</span><br><span class="line">            style&#x3D;&#123;&#123;width: 50, height: 300&#125;&#125;</span><br><span class="line">            source&#x3D;&#123;&#123;uri: &#39;https:&#x2F;&#x2F;facebook.github.io&#x2F;react-native&#x2F;img&#x2F;tiny_logo.png&#39;&#125;&#125;</span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        &#123;&#x2F;*base64*&#x2F;&#125;</span><br><span class="line">        &lt;Image</span><br><span class="line">            style&#x3D;&#123;&#123;width: 66, height: 58&#125;&#125;</span><br><span class="line">            source&#x3D;&#123;&#123;uri: &#39;data:image&#x2F;png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2&#x2F;ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P&#x2F;eMrC5UTVAAAAABJRU5ErkJggg&#x3D;&#x3D;&#39;&#125;&#125;</span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        &#123;&#x2F;*按钮 , title和onPress为必选*&#x2F;&#125;</span><br><span class="line">        &lt;Button</span><br><span class="line">            onPress&#x3D;&#123;()&#x3D;&gt;&#123;console.log(&quot;abc&quot;)&#125;&#125;</span><br><span class="line">            title&#x3D;&quot;Learn More&quot;</span><br><span class="line">            color&#x3D;&quot;#841584&quot;</span><br><span class="line">            accessibilityLabel&#x3D;&quot;Learn more about this purple button&quot;</span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        &#123;&#x2F;*加载动画*&#x2F;&#125;</span><br><span class="line">        &lt;ActivityIndicator size&#x3D;&quot;large&quot; color&#x3D;&quot;#0000ff&quot;</span><br><span class="line"></span><br><span class="line">            &#x2F;&gt;</span><br><span class="line">        &lt;ActivityIndicator size&#x3D;&quot;small&quot; color&#x3D;&quot;#00ff00&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;ScrollView&gt;</span><br><span class="line">&lt;&#x2F;View&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="路由react-native-router-flux"><a href="#路由react-native-router-flux" class="headerlink" title="路由react-native-router-flux"></a>路由react-native-router-flux</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;Router&gt;</span><br><span class="line">    分组</span><br><span class="line">    &lt;Stack key=<span class="string">"root"</span>&gt;</span><br><span class="line">        路由占位符</span><br><span class="line">        &lt;Scene key=<span class="string">"app"</span> component=&#123;App&#125; title=&#123;<span class="string">"首页"</span>&#125; hideNavBar/&gt;</span><br><span class="line">        &lt;Scene key=<span class="string">"movieList"</span> navigationBarStyle=&#123;&#123;<span class="attr">height</span>:<span class="number">50</span>&#125;&#125; component=&#123;MovieList&#125; title=&#123;<span class="string">"电影列表"</span>&#125;/&gt;</span><br><span class="line">        &lt;Scene key=<span class="string">"movieDetail"</span> navigationBarStyle=&#123;&#123;<span class="attr">height</span>:<span class="number">50</span>&#125;&#125; component=&#123;MovieDetail&#125; title=&#123;<span class="string">"电影详情"</span>&#125;/&gt;</span><br><span class="line">    &lt;<span class="regexp">/Stack&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>Router&gt;</span><br><span class="line"></span><br><span class="line">跳转只需导入Actions</span><br><span class="line">Actions.路由key(&#123;传递的参数对象&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="FlatList"><a href="#FlatList" class="headerlink" title="FlatList"></a>FlatList</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;View&gt;</span><br><span class="line">                &lt;FlatList</span><br><span class="line">                    data=&#123;<span class="keyword">this</span>.state.movies&#125; <span class="comment">//数据源</span></span><br><span class="line">					onEndReached=&#123;<span class="keyword">this</span>.onScroll&#125; <span class="comment">//滚动到底部事件</span></span><br><span class="line">                    onEndReachedThreshold=&#123;<span class="number">0.01</span>&#125; <span class="comment">//距离底部还有多少触发事件,0.01为百分之一</span></span><br><span class="line">                    ListFooterComponent=&#123; <span class="comment">//底部组件,一般用来放加载动画</span></span><br><span class="line">                        &lt;ActivityIndicator</span><br><span class="line">                            animating=&#123;<span class="keyword">this</span>.state.loading&#125;</span><br><span class="line">                            size=<span class="string">"large"</span></span><br><span class="line">                            style=&#123;[styles.loading]&#125;</span><br><span class="line">                        /&gt;</span><br><span class="line">                    &#125;</span><br><span class="line">                    ItemSeparatorComponent=&#123; <span class="comment">//分割组件</span></span><br><span class="line">                        <span class="keyword">this</span>.renderSeparator</span><br><span class="line">                    &#125;</span><br><span class="line">                    renderItem=&#123;(&#123;item, index&#125;) =&gt; &#123;</span><br><span class="line">                        <span class="keyword">return</span> (</span><br><span class="line">                            &lt;TouchableHighlight onPress=&#123;()=&gt;&#123;Actions.movieDetail(&#123;<span class="attr">id</span>:item.id&#125;)&#125;&#125; underlayColor=<span class="string">"white"</span>&gt;</span><br><span class="line">                                &lt;View key=&#123;index&#125; style=&#123;styles.item&#125;&gt;</span><br><span class="line">                                    &lt;Image source=&#123;&#123;<span class="attr">uri</span>: item.images.small&#125;&#125;</span><br><span class="line">                                           style=&#123;&#123;<span class="attr">width</span>: <span class="number">100</span>, <span class="attr">height</span>: <span class="number">150</span>&#125;&#125;/&gt;</span><br><span class="line">                                    &lt;View style=&#123;styles.title&#125;&gt;</span><br><span class="line">                                        &lt;Text&gt;电影名称:&#123;item.title&#125;&#123;<span class="string">'\n'</span>&#125;&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">                                        &lt;Text&gt;电影类型:&#123;item.genres.join(',')&#125;&#123;'\n'&#125;&lt;/</span>Text&gt;</span><br><span class="line">                                        &lt;Text&gt;制作年份:&#123;item.year&#125;&#123;<span class="string">'\n'</span>&#125;&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">                                        &lt;Text&gt;豆瓣评分:&#123;item.rating.average&#125;&#123;'\n'&#125;&lt;/</span>Text&gt;</span><br><span class="line">                                    &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">                                &lt;/</span>View&gt;</span><br><span class="line">                            &lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">                        );</span></span><br><span class="line"><span class="regexp">                    &#125;&#125;</span></span><br><span class="line"><span class="regexp">                /</span>&gt;</span><br><span class="line">            &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    renderSeparator = () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">        return &lt;View style=&#123;&#123;borderBottom: 1, borderColor: '#ccc', borderWidth: 1&#125;&#125;/</span>&gt;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="TouchableHighlight"><a href="#TouchableHighlight" class="headerlink" title="TouchableHighlight"></a>TouchableHighlight</h3><p>点击事件必须通过该组件</p>
+<h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">运行命令</span><br><span class="line"> keytool -genkeypair -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000</span><br><span class="line"> </span><br><span class="line"> 口令:huangxin</span><br><span class="line"> 姓氏:huang</span><br></pre></td></tr></table></figure>
+
+<h3 id="手机API"><a href="#手机API" class="headerlink" title="手机API"></a>手机API</h3><p>todo</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="blog.hxcloud.xyz/react-native.html" data-id="ck8k6ua740006noa4bmjb0pzn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/%E6%B5%8B%E8%AF%952020/04/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Kay<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

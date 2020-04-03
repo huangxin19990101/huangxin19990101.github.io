@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Kay&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Emcascript6解构表达式数组的结构赋值 123456789let [a,b,c] &#x3D; [1,2,3]console.log(a,b,c)&#x2F;&#x2F;1 2 3let [a,b,c] &#x3D; [,123,]console.log(a,b,c)&#x2F;&#x2F;undefined 123 undefinedlet [a &#x3D; 100,b,c] &#x3D; [,123,]   默认值console.log(a,b,c)&#x2F;&#x2F;100">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kay&#39;s Blog">
+<meta property="og:url" content="blog.hxcloud.xyz/EmcaScript.html">
+<meta property="og:site_name" content="Kay&#39;s Blog">
+<meta property="og:description" content="Emcascript6解构表达式数组的结构赋值 123456789let [a,b,c] &#x3D; [1,2,3]console.log(a,b,c)&#x2F;&#x2F;1 2 3let [a,b,c] &#x3D; [,123,]console.log(a,b,c)&#x2F;&#x2F;undefined 123 undefinedlet [a &#x3D; 100,b,c] &#x3D; [,123,]   默认值console.log(a,b,c)&#x2F;&#x2F;100">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2020-04-03T12:51:36.790Z">
+<meta property="article:modified_time" content="2020-02-15T03:02:00.290Z">
+<meta property="article:author" content="Kay">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Kay&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Kay&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Record my knowledge</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="blog.hxcloud.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/EmcaScript.html" class="article-date">
+  <time datetime="2020-04-03T12:51:36.790Z" itemprop="datePublished">2020-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Emcascript6"><a href="#Emcascript6" class="headerlink" title="Emcascript6"></a>Emcascript6</h1><h4 id="解构表达式"><a href="#解构表达式" class="headerlink" title="解构表达式"></a>解构表达式</h4><p>数组的结构赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="built_in">console</span>.log(a,b,c)</span><br><span class="line"><span class="comment">//1 2 3</span></span><br><span class="line"><span class="keyword">let</span> [a,b,c] = [,<span class="number">123</span>,]</span><br><span class="line"><span class="built_in">console</span>.log(a,b,c)</span><br><span class="line"><span class="comment">//undefined 123 undefined</span></span><br><span class="line"><span class="keyword">let</span> [a = <span class="number">100</span>,b,c] = [,<span class="number">123</span>,]   默认值</span><br><span class="line"><span class="built_in">console</span>.log(a,b,c)</span><br><span class="line"><span class="comment">//100 123 undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>对象的解构表达式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;foo,bar&#125;= &#123;<span class="attr">foo</span>:<span class="string">"食物"</span>,<span class="attr">bar</span>:<span class="string">'bar'</span>&#125;  根据属性名解构获取对象的值</span><br><span class="line"><span class="built_in">console</span>.log(foo,bar)</span><br><span class="line"><span class="comment">//食物 bar</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">foo</span>:abc,bar&#125;= &#123;<span class="attr">foo</span>:<span class="string">"食物"</span>,<span class="attr">bar</span>:<span class="string">'bar'</span>&#125;  使用别名接受</span><br><span class="line"><span class="built_in">console</span>.log(abc,bar)</span><br><span class="line"><span class="comment">//食物 bar</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//按需引入需要的属性或方法</span></span><br><span class="line"><span class="keyword">let</span> &#123;sin,cos,random&#125;  = <span class="built_in">Math</span></span><br><span class="line"><span class="built_in">console</span>.log(sin);</span><br><span class="line"><span class="built_in">console</span>.log(cos);</span><br><span class="line"><span class="built_in">console</span>.log(random);</span><br></pre></td></tr></table></figure>
+
+<p>字符串的结构赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自动拆分字符串赋值</span></span><br><span class="line"><span class="keyword">let</span> [a,b,c,d,e] = <span class="string">"hello"</span></span><br><span class="line"><span class="built_in">console</span>.log(a,b,c,d,e)</span><br><span class="line">h e l l o</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取字符串长度</span></span><br><span class="line"><span class="keyword">let</span> &#123;length&#125; = <span class="string">"hello"</span></span><br><span class="line"><span class="built_in">console</span>.log(length)</span><br><span class="line"><span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"abc"</span>.includes(<span class="string">"b"</span>,<span class="number">2</span>))</span><br><span class="line"><span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//模板字符串</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">name</span>: <span class="string">"huangxin"</span>, <span class="attr">age</span>: <span class="number">20</span>&#125;</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`&lt;div&gt;<span class="subst">$&#123;obj.name&#125;</span>&lt;/div&gt;`</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">padstart字符串头尾填充</span><br><span class="line"><span class="string">'x'</span>.padStart(<span class="number">5</span>, <span class="string">'ab'</span>) <span class="comment">// 'ababx'</span></span><br><span class="line"><span class="string">'x'</span>.padStart(<span class="number">4</span>, <span class="string">'ab'</span>) <span class="comment">// 'abax'</span></span><br><span class="line"><span class="string">'x'</span>.padEnd(<span class="number">5</span>, <span class="string">'ab'</span>) <span class="comment">// 'xabab'</span></span><br><span class="line"><span class="string">'x'</span>.padEnd(<span class="number">4</span>, <span class="string">'ab'</span>) <span class="comment">// 'xaba'</span></span><br></pre></td></tr></table></figure>
+
+<p>函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数默认值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params">name = <span class="string">"huangxin"</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getName());</span><br><span class="line"><span class="comment">//huangxin</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//解构表达式接受参数 ,设置默认值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logName</span>(<span class="params">&#123;name = <span class="string">"黄鑫"</span>&#125; = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name)</span><br><span class="line">&#125;</span><br><span class="line">logName()</span><br><span class="line"><span class="comment">//黄鑫</span></span><br><span class="line">logName(&#123;&#125;)</span><br><span class="line"><span class="comment">//黄鑫</span></span><br><span class="line">logName(&#123;<span class="attr">name</span>:<span class="string">'huangxin'</span>&#125;)</span><br><span class="line"><span class="comment">//huangxin</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数组参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listParams</span>(<span class="params">a,b,...c</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a,b,c)</span><br><span class="line">&#125;</span><br><span class="line">listParams(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="comment">//1 2 [ 3, 4, 5 ]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//数组参数转换成多个参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listParams</span>(<span class="params">a,b,c</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a,b,c)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">listParams(...arr)</span><br><span class="line"><span class="comment">//1 2 3</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//改变函数里this的值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">foo.call(&#123;<span class="attr">num</span>:<span class="number">1</span>&#125;)</span><br><span class="line"><span class="comment">//&#123; num: 1 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">es6中的导入</span><br><span class="line"><span class="keyword">import</span> xxx <span class="keyword">from</span> <span class="string">'xxx'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    name:<span class="string">"huangxin"</span></span><br><span class="line">&#125;</span><br><span class="line">和<span class="built_in">module</span>.exports = &#123;<span class="attr">name</span>:<span class="string">"huangxin"</span>&#125;  一样</span><br><span class="line">导入</span><br><span class="line"><span class="keyword">import</span> es6test <span class="keyword">from</span> <span class="string">'./es6/test'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> a = <span class="string">'abc'</span> 导出单个变量</span><br><span class="line">导入时需使用解构表达式接收</span><br><span class="line"><span class="keyword">import</span> &#123;a&#125; <span class="keyword">from</span> <span class="string">'./es6/test'</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="blog.hxcloud.xyz/EmcaScript.html" data-id="ck8k6ua6u0000noa4e4l07rzc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/%E6%B5%8B%E8%AF%952020/04/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Kay<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

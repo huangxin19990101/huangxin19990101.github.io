@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Kay&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MongoDB可以有多个数据库一个数据库可以有多个集合(表或者文档)一个集合可以有多条记录(表记录) 1234mongod 启动会在启动的命令行盘符下查找 &#x2F;data&#x2F;db目录,没有则会报错可使用启动参数mongod --dbpath&#x3D;数据存储目录  连接数据库 1mongo 默认连接本机数据库  基本命令1234show dbs查看所有数据库use [dbname]">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kay&#39;s Blog">
+<meta property="og:url" content="blog.hxcloud.xyz/mongodb.html">
+<meta property="og:site_name" content="Kay&#39;s Blog">
+<meta property="og:description" content="MongoDB可以有多个数据库一个数据库可以有多个集合(表或者文档)一个集合可以有多条记录(表记录) 1234mongod 启动会在启动的命令行盘符下查找 &#x2F;data&#x2F;db目录,没有则会报错可使用启动参数mongod --dbpath&#x3D;数据存储目录  连接数据库 1mongo 默认连接本机数据库  基本命令1234show dbs查看所有数据库use [dbname]">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2020-04-03T12:51:36.806Z">
+<meta property="article:modified_time" content="2020-03-01T03:55:13.770Z">
+<meta property="article:author" content="Kay">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Kay&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Kay&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Record my knowledge</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="blog.hxcloud.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/mongodb.html" class="article-date">
+  <time datetime="2020-04-03T12:51:36.806Z" itemprop="datePublished">2020-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h4><p>可以有多个数据库<br>一个数据库可以有多个集合(表或者文档)<br>一个集合可以有多条记录(表记录)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mongod 启动</span><br><span class="line">会在启动的命令行盘符下查找 &#x2F;data&#x2F;db目录,没有则会报错</span><br><span class="line">可使用启动参数</span><br><span class="line">mongod --dbpath&#x3D;数据存储目录</span><br></pre></td></tr></table></figure>
+
+<p>连接数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo 默认连接本机数据库</span><br></pre></td></tr></table></figure>
+
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show dbs查看所有数据库</span><br><span class="line">use [dbname]切换数据库(如果没有会新建)</span><br><span class="line">db 查看当前操作的数据库</span><br><span class="line">db.dropDatabase() 删除当前数据库</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">show collections 查看所有集合</span><br><span class="line">db.[集合名].insertOne([数据]) 在当前数据库插入一条数据</span><br><span class="line">db.[集合名].find() 查询集合的所有数据</span><br><span class="line">db.[集合名].drop() 删除集合</span><br><span class="line"></span><br><span class="line">db.[集合名].insert([数据]) 在当前数据库插入一条数据</span><br><span class="line">db.[集合名].save([数据]) 同上都为插入,如果带_id 则为更新</span><br><span class="line"></span><br><span class="line">可以将数据定义为一个变量</span><br><span class="line">document=(&#123;title: <span class="string">'MongoDB 教程'</span>,</span><br><span class="line">	description: <span class="string">'MongoDB 是一个 Nosql 数据库'</span>, </span><br><span class="line">	by: <span class="string">'Mongodb中文网'</span>,    </span><br><span class="line">	url: <span class="string">'http://www.mongodb.org.cn'</span>, </span><br><span class="line">	tags: [<span class="string">'mongodb'</span>, <span class="string">'database'</span>, <span class="string">'NoSQL'</span>],  </span><br><span class="line">	likes: 100  </span><br><span class="line">&#125;);  </span><br><span class="line">db.[集合名].insert(document)</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">db.collection.update(    </span><br><span class="line">	&lt;query&gt;, </span><br><span class="line">	&lt;update&gt;, </span><br><span class="line">	&#123;       </span><br><span class="line">		upsert: &lt;boolean&gt;,   </span><br><span class="line">		multi: &lt;boolean&gt;,  </span><br><span class="line">		writeConcern: &lt;document&gt;</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br><span class="line">找到student集合下的gender&#x3D;boy的第一条数据,把数据的age设置为19,如果没有该属性,则新增该属性</span><br><span class="line">db.student.update(&#123;gender:&quot;boy&quot;&#125;,&#123;$set:&#123;age:19&#125;&#125;)</span><br><span class="line"></span><br><span class="line">也可以通过save方法传入_id属性进行更新</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>query</strong> : update的查询条件，类似sql update查询内where后面的。</li>
+<li><strong>update</strong> : update的对象和一些更新的操作符（如$,$inc…）等，也可以理解为sql update查询内set后面的</li>
+<li><strong>upsert</strong> : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</li>
+<li><strong>multi</strong> : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</li>
+<li><strong>writeConcern</strong> :可选，抛出异常的级别。</li>
+</ul>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">db.collection.remove(     </span><br><span class="line">	&lt;query&gt;,  删除条件    </span><br><span class="line">	&#123;       </span><br><span class="line">		justOne: &lt;boolean&gt;, 是否只删除一个,默认false</span><br><span class="line">		writeConcern: &lt;document&gt;  抛出异常的级别。</span><br><span class="line">	&#125; </span><br><span class="line">)</span><br><span class="line">&#x2F;&#x2F;根据id删除</span><br><span class="line">db.student.remove(&#123; &quot;_id&quot; : &quot;5db4454dcf75582a2f5787d1&quot;&#125;)</span><br><span class="line">&#x2F;&#x2F;只删除找到的第一条记录</span><br><span class="line">db.student.remove(&#123; &quot;name&quot; : &quot;黄鑫&quot;&#125;,&#123;justOne:true&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.col.find()查询一个集合的所有数据</span><br><span class="line">db.col.find().pretty()  查询一个集合的所有数据并格式化</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">格式</th>
+<th align="left">范例</th>
+<th align="left">RDBMS中的类似语句</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">等于</td>
+<td align="left"><code>{&lt;key&gt;:&lt;value&gt;</code>}</td>
+<td align="left"><code>db.col.find({&quot;by&quot;:&quot;菜鸟教程&quot;}).pretty()</code></td>
+<td align="left"><code>where by = &#39;菜鸟教程&#39;</code></td>
+</tr>
+<tr>
+<td align="left">小于</td>
+<td align="left"><code>{&lt;key&gt;:{$lt:&lt;value&gt;}}</code></td>
+<td align="left"><code>db.col.find({&quot;likes&quot;:{$lt:50}}).pretty()</code></td>
+<td align="left"><code>where likes &lt; 50</code></td>
+</tr>
+<tr>
+<td align="left">小于或等于</td>
+<td align="left"><code>{&lt;key&gt;:{$lte:&lt;value&gt;}}</code></td>
+<td align="left"><code>db.col.find({&quot;likes&quot;:{$lte:50}}).pretty()</code></td>
+<td align="left"><code>where likes &lt;= 50</code></td>
+</tr>
+<tr>
+<td align="left">大于</td>
+<td align="left"><code>{&lt;key&gt;:{$gt:&lt;value&gt;}}</code></td>
+<td align="left"><code>db.col.find({&quot;likes&quot;:{$gt:50}}).pretty()</code></td>
+<td align="left"><code>where likes &gt; 50</code></td>
+</tr>
+<tr>
+<td align="left">大于或等于</td>
+<td align="left"><code>{&lt;key&gt;:{$gte:&lt;value&gt;}}</code></td>
+<td align="left"><code>db.col.find({&quot;likes&quot;:{$gte:50}}).pretty()</code></td>
+<td align="left"><code>where likes &gt;= 50</code></td>
+</tr>
+<tr>
+<td align="left">不等于</td>
+<td align="left"><code>{&lt;key&gt;:{$ne:&lt;value&gt;}}</code></td>
+<td align="left"><code>db.col.find({&quot;likes&quot;:{$ne:50}}).pretty()</code></td>
+<td align="left"><code>where likes != 50</code></td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">多个条件</span><br><span class="line">db.col.find(&#123;key1:value1, key2:value2&#125;).pretty()  </span><br><span class="line">or条件</span><br><span class="line">db.col.find(&#123;$or: [&#123;key1: value1&#125;, &#123;key2:value2&#125;]&#125;).pretty()</span><br></pre></td></tr></table></figure>
+
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>mongoose是基于mongodb官方驱动进行封装的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"><span class="comment">//连接数据库</span></span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/test'</span>, &#123; <span class="attr">useUnifiedTopology</span>: <span class="literal">true</span>,<span class="attr">useNewUrlParser</span>: <span class="literal">true</span>  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建实体</span></span><br><span class="line"><span class="comment">//mongodb只需要在代码中设计数据库模型</span></span><br><span class="line"><span class="keyword">const</span> Cat = mongoose.model(<span class="string">'Cat'</span>, &#123;<span class="attr">name</span>: <span class="built_in">String</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//实例化</span></span><br><span class="line"><span class="keyword">const</span> kitty = <span class="keyword">new</span> Cat(&#123;<span class="attr">name</span>: <span class="string">'Zildjian'</span>&#125;);</span><br><span class="line"><span class="comment">//保存</span></span><br><span class="line">kitty.save().then(<span class="function">(<span class="params">res</span>) =&gt;</span> <span class="built_in">console</span>.log(res));</span><br></pre></td></tr></table></figure>
+
+<p>所有字段类型示例 ,约束是为了数据的完整性,防止有脏数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    name:    <span class="built_in">String</span>,<span class="comment">//字符串</span></span><br><span class="line">    binary:  Buffer,<span class="comment">//二进制</span></span><br><span class="line">    living:  <span class="built_in">Boolean</span>,<span class="comment">//布尔</span></span><br><span class="line">    updated: &#123; <span class="attr">type</span>: <span class="built_in">Date</span>, <span class="attr">default</span>: <span class="built_in">Date</span>.now &#125;,<span class="comment">//日期</span></span><br><span class="line">    age:     &#123; <span class="attr">type</span>: <span class="built_in">Number</span>, <span class="attr">min</span>: <span class="number">18</span>, <span class="attr">max</span>: <span class="number">65</span> &#125;,<span class="comment">//数字</span></span><br><span class="line">    mixed:   Schema.Types.Mixed,</span><br><span class="line">    _someId: Schema.Types.ObjectId,</span><br><span class="line">    decimal: Schema.Types.Decimal128,</span><br><span class="line">    array: [],<span class="comment">//数组</span></span><br><span class="line">    ofString: [<span class="built_in">String</span>],<span class="comment">//字符串数组</span></span><br><span class="line">    ofNumber: [<span class="built_in">Number</span>],<span class="comment">//number数组</span></span><br><span class="line">    ofDates: [<span class="built_in">Date</span>],<span class="comment">//日期数组</span></span><br><span class="line">    ofBuffer: [Buffer],</span><br><span class="line">    ofBoolean: [<span class="built_in">Boolean</span>],</span><br><span class="line">    ofMixed: [Schema.Types.Mixed],</span><br><span class="line">    ofObjectId: [Schema.Types.ObjectId],</span><br><span class="line">    ofArrays: [[]],</span><br><span class="line">    ofArrayOfNumbers: [[<span class="built_in">Number</span>]],</span><br><span class="line">    nested: &#123;</span><br><span class="line">        stuff: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">lowercase</span>: <span class="literal">true</span>, <span class="attr">trim</span>: <span class="literal">true</span> &#125;</span><br><span class="line">    &#125;,<span class="comment">//对象</span></span><br><span class="line">    map: <span class="built_in">Map</span>, <span class="comment">//map对象</span></span><br><span class="line">    mapOfString: &#123;</span><br><span class="line">        type: <span class="built_in">Map</span>,</span><br><span class="line">        <span class="keyword">of</span>: <span class="built_in">String</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Thing = mongoose.model(<span class="string">'Thing'</span>, schema);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> m = <span class="keyword">new</span> Thing;</span><br><span class="line">m.name = <span class="string">'Statue of Liberty'</span>;</span><br><span class="line">m.age = <span class="number">125</span>;</span><br><span class="line">m.updated = <span class="keyword">new</span> <span class="built_in">Date</span>;</span><br><span class="line">m.binary = Buffer.alloc(<span class="number">0</span>);</span><br><span class="line">m.living = <span class="literal">false</span>;</span><br><span class="line">m.mixed = &#123; <span class="attr">any</span>: &#123; <span class="attr">thing</span>: <span class="string">'i want'</span> &#125; &#125;;</span><br><span class="line">m.markModified(<span class="string">'mixed'</span>);</span><br><span class="line">m._someId = <span class="keyword">new</span> mongoose.Types.ObjectId;</span><br><span class="line">m.array.push(<span class="number">1</span>);</span><br><span class="line">m.ofString.push(<span class="string">"strings!"</span>);</span><br><span class="line">m.ofNumber.unshift(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">m.ofDates.addToSet(<span class="keyword">new</span> <span class="built_in">Date</span>);</span><br><span class="line">m.ofBuffer.pop();</span><br><span class="line">m.ofMixed = [<span class="number">1</span>, [], <span class="string">'three'</span>, &#123; <span class="attr">four</span>: <span class="number">5</span> &#125;];</span><br><span class="line">m.nested.stuff = <span class="string">'good'</span>;</span><br><span class="line">m.map = <span class="keyword">new</span> <span class="built_in">Map</span>([[<span class="string">'key'</span>, <span class="string">'value'</span>]]);</span><br><span class="line">m.save(callback);</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义数据类型"><a href="#自定义数据类型" class="headerlink" title="自定义数据类型"></a>自定义数据类型</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/test'</span>, &#123;<span class="attr">useUnifiedTopology</span>: <span class="literal">true</span>, <span class="attr">useNewUrlParser</span>: <span class="literal">true</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设计集合结构</span></span><br><span class="line"><span class="keyword">const</span> userSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    username: &#123;</span><br><span class="line">        type: <span class="built_in">String</span>,</span><br><span class="line">        required: <span class="literal">true</span> <span class="comment">//必填</span></span><br><span class="line">    &#125;,</span><br><span class="line">    password: &#123;</span><br><span class="line">        type: <span class="built_in">String</span>,</span><br><span class="line">        required: <span class="literal">true</span> <span class="comment">//必填</span></span><br><span class="line">    &#125;,</span><br><span class="line">    email: &#123;</span><br><span class="line">        type: <span class="built_in">String</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//将集合结构发布为模型</span></span><br><span class="line"><span class="comment">//第一个参数为集合名称,mongoose会自动将大写的字符串自动生成复数</span></span><br><span class="line"><span class="comment">//返回模型构造函数</span></span><br><span class="line"><span class="keyword">const</span> User = mongoose.model(<span class="string">'User'</span>, userSchema);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//通过模型构造函数创建对象</span></span><br><span class="line"><span class="keyword">let</span> user = <span class="keyword">new</span> User(&#123;<span class="attr">name</span>: <span class="string">"黄鑫"</span>&#125;)</span><br><span class="line"><span class="comment">//持久化</span></span><br><span class="line">user.save().then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"存储成功"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">error</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"存储失败"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用js查询数据"><a href="#使用js查询数据" class="headerlink" title="使用js查询数据"></a>使用js查询数据</h3><h4 id="可以拆解出来查询"><a href="#可以拆解出来查询" class="headerlink" title="可以拆解出来查询"></a>可以拆解出来查询</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> query = User.find(); <span class="comment">// `query` is an instance of `Query`</span></span><br><span class="line">query.setOptions(&#123; <span class="attr">lean</span> : <span class="literal">true</span> &#125;); <span class="comment">//该属性设置返回的对象是否为模型构造的对象,true则为不是,false则返回的对象会有save等方法</span></span><br><span class="line">query.exec(<span class="function"><span class="keyword">function</span> (<span class="params">error,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询所有"><a href="#查询所有" class="headerlink" title="查询所有"></a>查询所有</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">User.find(<span class="function"><span class="keyword">function</span> (<span class="params">error,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"读取错误"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//条件查询</span></span><br><span class="line">User.find(&#123;<span class="attr">username</span>:<span class="string">"黄鑫"</span>&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">error,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"读取错误"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询一个"><a href="#查询一个" class="headerlink" title="查询一个"></a>查询一个</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询一个,没有条件默认查询第一个</span></span><br><span class="line">User.findOne(&#123;<span class="attr">username</span>:<span class="string">"黄鑫"</span>&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">error,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"读取错误"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>删除</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//根据条件删除一个</span></span><br><span class="line">User.deleteOne(&#123;<span class="attr">_id</span>:<span class="string">"5db65066c56d9a19341f8595"</span>&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">error,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"删除失败"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据条件删除多个</span></span><br><span class="line">User.deleteMany(&#123;<span class="attr">password</span>:<span class="string">"123"</span>&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">error,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"删除失败"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>更新</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据条件更新一个</span></span><br><span class="line">User.updateOne(</span><br><span class="line">    &#123;<span class="attr">_id</span>: <span class="string">"5db65ccdeb376f3bac59d8b5"</span>&#125;,  <span class="comment">//条件</span></span><br><span class="line">    &#123;<span class="attr">username</span>: <span class="string">"abc"</span>&#125;, <span class="comment">//更新的属性</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">error, res</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(error);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//根据条件更新多个个</span></span><br><span class="line">User.updateMany(</span><br><span class="line">    &#123;<span class="attr">password</span>: <span class="string">"1"</span>&#125;,  <span class="comment">//条件</span></span><br><span class="line">    &#123;<span class="attr">username</span>: <span class="string">"黄鑫凯"</span>&#125;, <span class="comment">//更新的属性</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">error, res</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(error);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><h3 id="1-创建用户"><a href="#1-创建用户" class="headerlink" title="1.创建用户"></a>1.创建用户</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">    &#123;</span><br><span class="line">        user:<span class="string">'root'</span>,</span><br><span class="line">        pwd:<span class="string">'123456'</span>,</span><br><span class="line">        roles:[&#123;<span class="attr">role</span>:<span class="string">'root'</span>,<span class="attr">db</span>:<span class="string">'admin'</span>&#125;]</span><br><span class="line">    &#125;</span><br><span class="line">)   </span><br><span class="line">root权限只能在admin数据库授予</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-开启认证"><a href="#2-开启认证" class="headerlink" title="2.开启认证"></a>2.开启认证</h3><p>mongod.cfg设置 </p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">security:</span></span><br><span class="line">  <span class="string">authorization:enabled</span></span><br></pre></td></tr></table></figure>
+
+<p>连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo -u root -p 123456</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-删除用户"><a href="#3-删除用户" class="headerlink" title="3.删除用户"></a>3.删除用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropUser(&#39;test&#39;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-更新用户"><a href="#4-更新用户" class="headerlink" title="4.更新用户"></a>4.更新用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.updateUser(&quot;test&quot;,&#123;roles:[&#123;role:&#39;readWriteAnyDatabase&#39;,db:&#39;admin&#39;&#125;]&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-0-修改密码"><a href="#5-0-修改密码" class="headerlink" title="5.0.修改密码"></a>5.0.修改密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.changeUserPassword(&quot;username&quot;,&quot;pwd&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-1-内置角色"><a href="#5-1-内置角色" class="headerlink" title="5.1 内置角色"></a>5.1 内置角色</h3><h6 id="数据库用户角色"><a href="#数据库用户角色" class="headerlink" title="数据库用户角色"></a>数据库用户角色</h6><ul>
+<li>read: 只读数据权限</li>
+<li>readWrite:学些数据权限</li>
+</ul>
+<h6 id="数据库管理角色"><a href="#数据库管理角色" class="headerlink" title="数据库管理角色"></a>数据库管理角色</h6><ul>
+<li>dbAdmin: 在当前db中执行管理操作的权限</li>
+<li>dbOwner: 在当前db中执行任意操作</li>
+<li>userADmin: 在当前db中管理user的权限</li>
+</ul>
+<h6 id="备份和还原角色"><a href="#备份和还原角色" class="headerlink" title="备份和还原角色"></a>备份和还原角色</h6><ul>
+<li>backup</li>
+<li>restore</li>
+</ul>
+<h6 id="夸库角色"><a href="#夸库角色" class="headerlink" title="夸库角色"></a>夸库角色</h6><ul>
+<li>readAnyDatabase: 在所有数据库上都有读取数据的权限</li>
+<li>readWriteAnyDatabase: 在所有数据库上都有读写数据的权限</li>
+<li>userAdminAnyDatabase: 在所有数据库上都有管理user的权限</li>
+<li>dbAdminAnyDatabase: 管理所有数据库的权限</li>
+</ul>
+<h6 id="集群管理"><a href="#集群管理" class="headerlink" title="集群管理"></a>集群管理</h6><ul>
+<li>clusterAdmin: 管理机器的最高权限</li>
+<li>clusterManager: 管理和监控集群的权限</li>
+<li>clusterMonitor: 监控集群的权限</li>
+<li>hostManager: 管理Server</li>
+</ul>
+<h5 id="超级权限"><a href="#超级权限" class="headerlink" title="超级权限"></a>超级权限</h5><ul>
+<li>root: 超级用户</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="blog.hxcloud.xyz/mongodb.html" data-id="ck8k6ua81000enoa47g0v8ccz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/%E6%B5%8B%E8%AF%952020/04/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Kay<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Kay&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="webpack前端自动化构建工具 快速开始123导入方式import xxx from &#39;xxx&#39;  &#x2F;&#x2F;es6const xx &#x3D; require(&#39;xxx&#39;) &#x2F;&#x2F;node  1234567打包命令 npx webpack 或者webpack默认打包 src&#x2F;index.js 文件 输出到dist目录下的main.js文件将下面es6的语法打包成浏览器可以识别的语法import $ from">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kay&#39;s Blog">
+<meta property="og:url" content="blog.hxcloud.xyz/webpack.html">
+<meta property="og:site_name" content="Kay&#39;s Blog">
+<meta property="og:description" content="webpack前端自动化构建工具 快速开始123导入方式import xxx from &#39;xxx&#39;  &#x2F;&#x2F;es6const xx &#x3D; require(&#39;xxx&#39;) &#x2F;&#x2F;node  1234567打包命令 npx webpack 或者webpack默认打包 src&#x2F;index.js 文件 输出到dist目录下的main.js文件将下面es6的语法打包成浏览器可以识别的语法import $ from">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2020-04-03T12:51:36.843Z">
+<meta property="article:modified_time" content="2019-11-06T08:34:26.149Z">
+<meta property="article:author" content="Kay">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Kay&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Kay&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Record my knowledge</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="blog.hxcloud.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/webpack.html" class="article-date">
+  <time datetime="2020-04-03T12:51:36.843Z" itemprop="datePublished">2020-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><p>前端自动化构建工具</p>
+<h4 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">导入方式</span><br><span class="line"><span class="keyword">import</span> xxx <span class="keyword">from</span> <span class="string">'xxx'</span>  <span class="comment">//es6</span></span><br><span class="line"><span class="keyword">const</span> xx = <span class="built_in">require</span>(<span class="string">'xxx'</span>) <span class="comment">//node</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">打包命令 npx webpack 或者webpack</span><br><span class="line">默认打包 src/index.js 文件 输出到dist目录下的main.js文件</span><br><span class="line">将下面es6的语法打包成浏览器可以识别的语法</span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span></span><br><span class="line">$(()=&gt;&#123;</span><br><span class="line">    $(<span class="string">"li"</span>).css(<span class="string">"backgroundColor"</span>,<span class="string">"green"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>默认项目结构如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dist</span><br><span class="line">	main.js</span><br><span class="line">	index.html	</span><br><span class="line">src</span><br><span class="line">	index.js</span><br><span class="line">node_modules</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>配置文件名字为webpack.config.js(默认会查找这个文件)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;CleanWebpackPlugin&#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">'./src/index.js'</span>, <span class="comment">//入口文件(要构建的文件)</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: <span class="string">'bundle.js'</span>, <span class="comment">//构建输出文件名</span></span><br><span class="line">        path: path.resolve(__dirname, <span class="string">'dist'</span>) <span class="comment">//构建输出文件夹</span></span><br><span class="line">    &#125;,</span><br><span class="line">    devServer: &#123;  <span class="comment">//web-dev-server配置</span></span><br><span class="line">        open:<span class="literal">true</span>,</span><br><span class="line">        port:<span class="number">3000</span>,</span><br><span class="line">        contentBase:path.join(__dirname, <span class="string">"dist"</span>),</span><br><span class="line">        hot:<span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123; <span class="comment">//自动追加 &lt;script type="text/javascript" src="bundle.js"&gt;&lt;/script&gt;&lt;/body&gt;到页面最后</span></span><br><span class="line">            template: path.join(__dirname, <span class="string">'./src/index.html'</span>),<span class="comment">//指定模板页面,</span></span><br><span class="line">            filename: <span class="string">"index.html"</span>,<span class="comment">//生成的页面名称</span></span><br><span class="line">            minify: &#123; <span class="comment">//压缩html</span></span><br><span class="line">                collapseWhitespace: <span class="literal">true</span>,</span><br><span class="line">                removeComments: <span class="literal">true</span>,</span><br><span class="line">                removeRedundantAttributes: <span class="literal">true</span>,</span><br><span class="line">                removeScriptTypeAttributes: <span class="literal">true</span>,</span><br><span class="line">                removeStyleLinkTypeAttributes: <span class="literal">true</span>,</span><br><span class="line">                useShortDoctype: <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> CleanWebpackPlugin() <span class="comment">//打包前清理dist目录</span></span><br><span class="line">        <span class="keyword">new</span> VueLoaderPlugin(), <span class="comment">//vue文件插件</span></span><br><span class="line">    	<span class="keyword">new</span> MiniCssExtractPlugin(&#123;  <span class="comment">//抽取压缩css</span></span><br><span class="line">            filename: <span class="string">'[name].css'</span>,</span><br><span class="line">            chunkFilename: <span class="string">'[id].css'</span>,</span><br><span class="line">            ignoreOrder: <span class="literal">false</span>,</span><br><span class="line">        &#125;),   </span><br><span class="line">    	webpack 默认会进行压缩</span><br><span class="line">    ],</span><br><span class="line">     <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;   <span class="comment">//css解析器   loader的加载执行顺序是逆序的</span></span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                use: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        loader: MiniCssExtractPlugin.loader,</span><br><span class="line">                        options: &#123;</span><br><span class="line">                            publicPath: <span class="string">'../'</span>,</span><br><span class="line">                            hmr: process.env.NODE_ENV === <span class="string">'development'</span>,</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="string">'style-loader'</span>,</span><br><span class="line">                    <span class="string">'css-loader'</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123; <span class="comment">//文件url解析器	</span></span><br><span class="line">                test: <span class="regexp">/\.(png|svg|jpg|gif)$/</span>,</span><br><span class="line">                use: [</span><br><span class="line">                    <span class="string">'file-loader'</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123; <span class="comment">//字体</span></span><br><span class="line">                test: <span class="regexp">/\.(woff|woff2|eot|ttf|otf)$/</span>,</span><br><span class="line">                use: [</span><br><span class="line">                    <span class="string">'file-loader?name=images/[hash:8]-[name].[ext]'</span> <span class="comment">//修改打包后的文件名字和存放的文件夹</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.(js)$/</span>,</span><br><span class="line">                use: &#123;</span><br><span class="line">                    loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">                    options: &#123;</span><br><span class="line">                        presets: [<span class="string">'@babel/preset-env'</span>],</span><br><span class="line">                        plugins: [<span class="built_in">require</span>(<span class="string">'@babel/plugin-proposal-class-properties'</span>)] <span class="comment">//插件</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                exclude: <span class="string">"/node_modules"</span>, <span class="comment">//排除node_modules</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="webpack-dev-server自动打包编译-类似nodemon"><a href="#webpack-dev-server自动打包编译-类似nodemon" class="headerlink" title="webpack-dev-server自动打包编译(类似nodemon)"></a>webpack-dev-server自动打包编译(类似nodemon)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cnpm i webpack-dev-server -D 安装</span><br><span class="line">webpack-dev-server 启动</span><br><span class="line">使用该工具打包时, 引入bundle文件直接使用 /bundle.js  </span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"/bundle.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">因为打包工具是自动把文件打包到内存中的</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">webpack-dev-server --open 启动打开窗口</span><br><span class="line">--port 3000 端口</span><br><span class="line">--contentBase dist 初始化目录(设置dist目录为根目录)</span><br><span class="line">--hot 热启动 默认开启</span><br></pre></td></tr></table></figure>
+
+<h4 id="loader解析器"><a href="#loader解析器" class="headerlink" title="loader解析器"></a>loader解析器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">css解析器</span><br><span class="line">import &#39;.&#x2F;css&#x2F;index.css&#39;</span><br><span class="line">npm install --save-dev style-loader css-loader 安装</span><br></pre></td></tr></table></figure>
+
+<h5 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save-dev @babel&#x2F;core @babel&#x2F;cli @babel&#x2F;preset-env</span><br><span class="line">cnpm install --save @babel&#x2F;polyfill</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="blog.hxcloud.xyz/webpack.html" data-id="ck8k6ua79000bnoa46u910zhm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/%E6%B5%8B%E8%AF%952020/04/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Kay<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
