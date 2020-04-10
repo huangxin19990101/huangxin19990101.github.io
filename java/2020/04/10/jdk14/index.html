@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/favicon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.hxcloud.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="新特性   序号 特性名称 说明    305: Pattern Matching for instanceof (Preview) instanceof 模式匹配   343: Packaging Tool (Incubator)    345: NUMA-Aware Memory Allocation for G1    349: JFR Event Streaming    352: Non">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jdk14">
+<meta property="og:url" content="blog.hxcloud.xyz/java/2020/04/10/jdk14/index.html">
+<meta property="og:site_name" content="Kay&#39;s Blog">
+<meta property="og:description" content="新特性   序号 特性名称 说明    305: Pattern Matching for instanceof (Preview) instanceof 模式匹配   343: Packaging Tool (Incubator)    345: NUMA-Aware Memory Allocation for G1    349: JFR Event Streaming    352: Non">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-10T15:42:05.000Z">
+<meta property="article:modified_time" content="2020-04-10T15:42:54.216Z">
+<meta property="article:author" content="Kay">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="blog.hxcloud.xyz/java/2020/04/10/jdk14/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>jdk14 | Kay's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kay's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">替身使者是相互吸引的</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="blog.hxcloud.xyz/java/2020/04/10/jdk14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kay">
+      <meta itemprop="description" content="Star Platinum · The World ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kay's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jdk14
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-10 23:42:05 / 修改时间：23:42:54" itemprop="dateCreated datePublished" datetime="2020-04-10T23:42:05+08:00">2020-04-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h1><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>特性名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>305:</td>
+<td><a href="https://openjdk.java.net/jeps/305" target="_blank" rel="noopener">Pattern Matching for instanceof (Preview)</a></td>
+<td>instanceof 模式匹配</td>
+</tr>
+<tr>
+<td>343:</td>
+<td><a href="https://openjdk.java.net/jeps/343" target="_blank" rel="noopener">Packaging Tool (Incubator)</a></td>
+<td></td>
+</tr>
+<tr>
+<td>345:</td>
+<td><a href="https://openjdk.java.net/jeps/345" target="_blank" rel="noopener">NUMA-Aware Memory Allocation for G1</a></td>
+<td></td>
+</tr>
+<tr>
+<td>349:</td>
+<td><a href="https://openjdk.java.net/jeps/349" target="_blank" rel="noopener">JFR Event Streaming</a></td>
+<td></td>
+</tr>
+<tr>
+<td>352:</td>
+<td><a href="https://openjdk.java.net/jeps/352" target="_blank" rel="noopener">Non-Volatile Mapped Byte Buffers</a></td>
+<td></td>
+</tr>
+<tr>
+<td>358:</td>
+<td><a href="https://openjdk.java.net/jeps/358" target="_blank" rel="noopener">Helpful NullPointerExceptions</a></td>
+<td></td>
+</tr>
+<tr>
+<td>359:</td>
+<td><a href="https://openjdk.java.net/jeps/359" target="_blank" rel="noopener">Records (Preview)</a></td>
+<td></td>
+</tr>
+<tr>
+<td>361:</td>
+<td><a href="https://openjdk.java.net/jeps/361" target="_blank" rel="noopener">Switch Expressions (Standard)</a></td>
+<td>switch强化</td>
+</tr>
+<tr>
+<td>362:</td>
+<td><a href="https://openjdk.java.net/jeps/362" target="_blank" rel="noopener">Deprecate the Solaris and SPARC Ports</a></td>
+<td></td>
+</tr>
+<tr>
+<td>363:</td>
+<td><a href="https://openjdk.java.net/jeps/363" target="_blank" rel="noopener">Remove the Concurrent Mark Sweep (CMS) Garbage Collector</a></td>
+<td></td>
+</tr>
+<tr>
+<td>364:</td>
+<td><a href="https://openjdk.java.net/jeps/364" target="_blank" rel="noopener">ZGC on macOS</a></td>
+<td></td>
+</tr>
+<tr>
+<td>365:</td>
+<td><a href="https://openjdk.java.net/jeps/365" target="_blank" rel="noopener">ZGC on Windows</a></td>
+<td></td>
+</tr>
+<tr>
+<td>366:</td>
+<td><a href="https://openjdk.java.net/jeps/366" target="_blank" rel="noopener">Deprecate the ParallelScavenge + SerialOld GC Combination</a></td>
+<td></td>
+</tr>
+<tr>
+<td>367:</td>
+<td><a href="https://openjdk.java.net/jeps/367" target="_blank" rel="noopener">Remove the Pack200 Tools and API</a></td>
+<td></td>
+</tr>
+<tr>
+<td>368:</td>
+<td><a href="https://openjdk.java.net/jeps/368" target="_blank" rel="noopener">Text Blocks (Second Preview)</a></td>
+<td>文本块</td>
+</tr>
+<tr>
+<td>370:</td>
+<td><a href="https://openjdk.java.net/jeps/370" target="_blank" rel="noopener">Foreign-Memory Access API (Incubator)</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<h2 id="305-instanceof-模式匹配"><a href="#305-instanceof-模式匹配" class="headerlink" title="305:instanceof 模式匹配"></a>305:instanceof 模式匹配</h2><h3 id="before-jdk14"><a href="#before-jdk14" class="headerlink" title="before jdk14"></a>before jdk14</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (obj <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">    String s = (String) obj;</span><br><span class="line">    <span class="comment">// 对s进行操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码可以分为三个步骤</p>
+<ol>
+<li>判断obj的真实类型</li>
+<li>把obj强转成String</li>
+<li>对转换后的变量进行操作</li>
+</ol>
+<h3 id="jdk14"><a href="#jdk14" class="headerlink" title="jdk14"></a>jdk14</h3><p>jdk14里上面的判断和转换可以合为一步 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (obj <span class="keyword">instanceof</span> String s) &#123;</span><br><span class="line">    System.out.println(s);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">"类型不匹配"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>instanceof 后面定义的变量作用域 由表达式的语义决定</p>
+<p>上面代码的反转 , 可以在else代码块里使用变量 s </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!(obj <span class="keyword">instanceof</span> String s)) &#123;</span><br><span class="line">    System.out.println(<span class="string">"类型不为string"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其他使用情况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (obj <span class="keyword">instanceof</span> String s &amp;&amp; s.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    System.out.println(s);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">"类型不匹配"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!(obj <span class="keyword">instanceof</span> String s &amp;&amp; s.length() &gt; <span class="number">0</span>)) &#123;</span><br><span class="line">    System.out.println(<span class="string">"类型不为string"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h3><h4 id="重写equals方法"><a href="#重写equals方法" class="headerlink" title="重写equals方法"></a>重写equals方法</h4><h5 id="before-jdk14-1"><a href="#before-jdk14-1" class="headerlink" title="before jdk14"></a>before jdk14</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    Student student = (Student) o;</span><br><span class="line">    <span class="keyword">return</span> Objects.equals(name, student.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>判断对象地址是否相通</li>
+<li>判断是否为空 以及 是否为Student独享</li>
+<li>强转并判断对象的属性是否相通</li>
+</ol>
+<h5 id="jdk14-1"><a href="#jdk14-1" class="headerlink" title="jdk14"></a>jdk14</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == o || o <span class="keyword">instanceof</span> Student student &amp;&amp; Objects.equals(name, student.name));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>jdk14只需一行即可完成</p>
+<h2 id="361-switch强化"><a href="#361-switch强化" class="headerlink" title="361:switch强化"></a>361:switch强化</h2><h3 id="jdk14标准写法"><a href="#jdk14标准写法" class="headerlink" title="jdk14标准写法"></a>jdk14标准写法</h3><p>无需书写switch也不会发生贯穿现象 , 可以胜率break !</p>
+<h4 id="before-jdk14-2"><a href="#before-jdk14-2" class="headerlink" title="before jdk14"></a>before jdk14</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">(String score)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (score) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"100"</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"90"</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"80"</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="jdk14-2"><a href="#jdk14-2" class="headerlink" title="jdk14"></a>jdk14</h4><p>jdk14中无需书写break , 即可结束分支贯穿</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">(String score)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (score) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"100"</span> -&gt; System.out.println(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"90"</span> -&gt; System.out.println(<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"80"</span> -&gt; System.out.println(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="jdk14的switch表达式"><a href="#jdk14的switch表达式" class="headerlink" title="jdk14的switch表达式"></a>jdk14的switch表达式</h3><p>从jdk14开始switch可以作为表达式返回结果了, 不再是单独的语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String result = <span class="keyword">switch</span> (score) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"100"</span> -&gt; <span class="string">"优秀"</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"90"</span> -&gt; <span class="string">"良好"</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"80"</span> -&gt; <span class="string">"及格"</span>;</span><br><span class="line">    <span class="keyword">default</span> -&gt; <span class="string">"默认"</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>switch作为表达式有几个要点</p>
+<ol>
+<li>每个分支的返回结果必须是同一种数据类型</li>
+<li>必须有default分支</li>
+<li>必须有变量接受switch返回的结果</li>
+</ol>
+<h3 id="switch多值匹配"><a href="#switch多值匹配" class="headerlink" title="switch多值匹配"></a>switch多值匹配</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">(String score)</span> </span>&#123;</span><br><span class="line">    String result = <span class="keyword">switch</span> (score) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"100"</span>,<span class="string">"99"</span> -&gt; <span class="string">"优秀"</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"90"</span> -&gt; <span class="string">"良好"</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"80"</span>,<span class="string">"75"</span> -&gt; <span class="string">"及格"</span>;</span><br><span class="line">        <span class="keyword">default</span> -&gt; <span class="string">"默认"</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="yield关键字"><a href="#yield关键字" class="headerlink" title="yield关键字"></a>yield关键字</h3><p>当switch使用箭头时,箭头右边可以是:</p>
+<ol>
+<li>表达式</li>
+<li>throw 语句</li>
+<li>代码块</li>
+</ol>
+<p>如果switch是作为表达式使用 , 并且分支里是代码块, 则需要通过yield来返回值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">(String score)</span> </span>&#123;</span><br><span class="line">    String result = <span class="keyword">switch</span> (score) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"100"</span> -&gt; <span class="string">"优秀"</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"90"</span> -&gt; <span class="string">"良好"</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"80"</span>, <span class="string">"75"</span> -&gt; <span class="string">"及格"</span>;</span><br><span class="line">        <span class="keyword">default</span> -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (score.equals(<span class="string">"98"</span>)) &#123;</span><br><span class="line">                yield <span class="string">"优秀"</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                yield <span class="string">"其他"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    System.out.println(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>依然不支持区间匹配</p>
+<h2 id="368-文本块"><a href="#368-文本块" class="headerlink" title="368:文本块"></a>368:文本块</h2><p>使用6个双引号包括 , 代码块里的换行是有效的 , 转换成字符串时会自动加上\n<br>java编译时会自动删除没必要的缩进 , 只保留相对缩进</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> String a = <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">                html = requests.get(url, params=data, headers=header)</span></span><br><span class="line"><span class="string">                html_json = re.search('(?&lt;=fetchJSON_comment98\\().*(?=\\);)', html.text).group(0)</span></span><br><span class="line"><span class="string">                item = json.loads(html_json)</span></span><br><span class="line"><span class="string">                "</span><span class="string">""</span>;</span><br><span class="line">相当于</span><br><span class="line">String a =  <span class="string">" \n</span></span><br><span class="line"><span class="string">                html = requests.get(url, params=data, headers=header) \n</span></span><br><span class="line"><span class="string">                html_json = re.search('(?&lt;=fetchJSON_comment98\\().*(?=\\);)', html.text).group(0)  \n</span></span><br><span class="line"><span class="string">                item = json.loads(html_json)  \n</span></span><br><span class="line"><span class="string">                "</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="343-java打包工具"><a href="#343-java打包工具" class="headerlink" title="343:java打包工具"></a>343:java打包工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jpackage --name myapp --input lib --main-jar --main-class myapp.Main</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="359-records记录类型"><a href="#359-records记录类型" class="headerlink" title="359:records记录类型"></a>359:records记录类型</h2><p>新类型 , like enum</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function">record <span class="title">A</span><span class="params">(String name,<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">对应的<span class="class"><span class="keyword">class</span>源码,实际为一个静态<span class="title">final</span>类</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">static</span> <span class="title">final</span> <span class="title">class</span> <span class="title">A</span> <span class="keyword">extends</span> <span class="title">java</span>.<span class="title">lang</span>.<span class="title">Record</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> java.lang.String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">(java.lang.String name, <span class="keyword">int</span> age)</span> </span>&#123; <span class="comment">/* compiled code */</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> java.lang.<span class="function">String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="comment">/* compiled code */</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123; <span class="comment">/* compiled code */</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(java.lang.Object o)</span> </span>&#123; <span class="comment">/* compiled code */</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> java.lang.<span class="function">String <span class="title">name</span><span class="params">()</span> </span>&#123; <span class="comment">/* compiled code */</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">age</span><span class="params">()</span> </span>&#123; <span class="comment">/* compiled code */</span> &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以通过对象.属性名()获取属性值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A a = <span class="keyword">new</span> A(<span class="string">"黄鑫"</span>, <span class="number">21</span>);</span><br><span class="line">        System.out.println(a.age());</span><br><span class="line">        System.out.println(a.name());</span><br><span class="line">    &#125;</span><br><span class="line">结果</span><br><span class="line"><span class="number">21</span></span><br><span class="line">黄鑫</span><br><span class="line">A[name=黄鑫, age=<span class="number">21</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="record定义"><a href="#record定义" class="headerlink" title="record定义"></a>record定义</h3><ol>
+<li>构造方法的变量为final成员变量</li>
+<li>record里只能定义static成员变量 , 不能定义实例成员变量</li>
+<li>可以定义实例和静态方法</li>
+<li>可以定义不带参数构造方法 用于 增强已有 有参构造器</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">record <span class="title">A</span><span class="params">(String name,<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> y;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> A&#123;</span><br><span class="line">        <span class="comment">//不带参构造方法, 用于增强已有参数构造器</span></span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kay
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="/blog.hxcloud.xyz/java/2020/04/10/jdk14/" title="jdk14">blog.hxcloud.xyz/java/2020/04/10/jdk14/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E8%BF%90%E7%BB%B4/2020/04/06/docker/" rel="prev" title="docker">
+      <i class="fa fa-chevron-left"></i> docker
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#新特性"><span class="nav-number">1.</span> <span class="nav-text">新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#305-instanceof-模式匹配"><span class="nav-number">1.1.</span> <span class="nav-text">305:instanceof 模式匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#before-jdk14"><span class="nav-number">1.1.1.</span> <span class="nav-text">before jdk14</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jdk14"><span class="nav-number">1.1.2.</span> <span class="nav-text">jdk14</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">1.1.3.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际应用"><span class="nav-number">1.1.4.</span> <span class="nav-text">实际应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重写equals方法"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">重写equals方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#before-jdk14-1"><span class="nav-number">1.1.4.1.1.</span> <span class="nav-text">before jdk14</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jdk14-1"><span class="nav-number">1.1.4.1.2.</span> <span class="nav-text">jdk14</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#361-switch强化"><span class="nav-number">1.2.</span> <span class="nav-text">361:switch强化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jdk14标准写法"><span class="nav-number">1.2.1.</span> <span class="nav-text">jdk14标准写法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#before-jdk14-2"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">before jdk14</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jdk14-2"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">jdk14</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jdk14的switch表达式"><span class="nav-number">1.2.2.</span> <span class="nav-text">jdk14的switch表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch多值匹配"><span class="nav-number">1.2.3.</span> <span class="nav-text">switch多值匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yield关键字"><span class="nav-number">1.2.4.</span> <span class="nav-text">yield关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.5.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#368-文本块"><span class="nav-number">1.3.</span> <span class="nav-text">368:文本块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#343-java打包工具"><span class="nav-number">1.4.</span> <span class="nav-text">343:java打包工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#359-records记录类型"><span class="nav-number">1.5.</span> <span class="nav-text">359:records记录类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#record定义"><span class="nav-number">1.5.1.</span> <span class="nav-text">record定义</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kay</p>
+  <div class="site-description" itemprop="description">Star Platinum · The World </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/huangxin19990101" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;huangxin19990101" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1843942434@qq.com" title="E-Mail → mailto:1843942434@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kay</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
